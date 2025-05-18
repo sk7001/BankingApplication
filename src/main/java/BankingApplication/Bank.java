@@ -26,4 +26,13 @@ public abstract class Bank {
     public String generateBankCode() {
         return BANK_CODE_PREFIX + String.format("%03d", bankCounter++);
     }
+    
+    public Account findAccountByNumber(String accountNumber) {
+        for (Account acc : accounts) {
+            if (acc.getAccountNumber().equals(accountNumber)) {
+                return acc;
+            }
+        }
+        return null;
+    }
 }

@@ -36,5 +36,19 @@ public class BankingApplication {
         System.out.println("Holder: " + account.getHolderName());
         System.out.println("Account Number: " + account.getAccountNumber());
         System.out.println("Balance: ₹" + account.getBalance());
+
+        System.out.println("\n--- Deposit Operation ---");
+        sc.nextLine(); 
+        System.out.print("Enter Account Number to deposit: ");
+        String searchAccNum = sc.nextLine();
+        Account found = bank.findAccountByNumber(searchAccNum);
+        if (found != null) {
+            System.out.print("Enter amount to deposit: ");
+            double amount = sc.nextDouble();
+            found.deposit(amount);
+            System.out.println("Deposit successful. New Balance: ₹" + found.getBalance());
+        } else {
+            System.out.println("Account not found!");
+        }
     }
 }
