@@ -50,5 +50,23 @@ public class BankingApplication {
         } else {
             System.out.println("Account not found!");
         }
+
+        sc.nextLine();
+        System.out.println("\n--- Withdraw Operation ---");
+        System.out.print("Enter Account Number to withdraw: ");
+        String withdrawAccNum = sc.nextLine();
+        Account withdrawAcc = bank.findAccountByNumber(withdrawAccNum);
+        if (withdrawAcc != null) {
+            System.out.print("Enter amount to withdraw: ");
+            double withdrawAmt = sc.nextDouble();
+            if (withdrawAcc.getBalance() >= withdrawAmt) {
+                withdrawAcc.withdraw(withdrawAmt);
+                System.out.println("Withdrawal successful. New Balance: ₹" + withdrawAcc.getBalance());
+            } else {
+                System.out.println("Insufficient balance!");
+            }
+        } else {
+            System.out.println("Account not found!");
+        }
     }
 }
