@@ -68,5 +68,11 @@ public class BankingApplication {
         } else {
             System.out.println("Account not found!");
         }
+        
+        System.out.println("\n--- Display All Accounts ---");
+        bank.displayBankInfo();
+        bank.displayAllAccounts();
+        
+        sc.close();
     }
 }

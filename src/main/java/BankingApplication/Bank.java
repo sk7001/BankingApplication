@@ -35,4 +35,16 @@ public abstract class Bank {
         }
         return null;
     }
+    
+    public void displayAllAccounts() {
+        System.out.println("--- Account Details ---");
+        for (Account acc : accounts) {
+            acc.showAccountType();
+            System.out.println("Holder: " + acc.getHolderName());
+            System.out.println("Account Number: " + acc.getAccountNumber());
+            System.out.println("Balance: ₹" + acc.getBalance());
+            System.out.println("----------------------");
+        }
+    }
+
 }
